@@ -1,0 +1,87 @@
+-- Atalho no vscode
+ctrl  + shift + p
+
+--E digite o comando do git.
+git banch 
+
+-- Retorna para o branch anterior
+git checkout -
+
+
+-- dicas Git History, Git Blame
+https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame
+
+https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory
+
+-- Alterar o comentário do último commit
+git commit --amend
+
+-- Alterar o arquivo
+git add .
+
+git commit --amend
+
+obs: só é interessante quando os commits não foram enviados para o repositório remoto
+
+-- cherry-pick
+-- Pegando commits específicos
+-- git cherry-pick (hash do commit)
+
+-- https://git-scm.com/docs/git-cherry-pick
+
+-- Opção de escolher o que quer commitar em um arquivo
+git add -p
+
+
+-- Juntando commits com squash
+-- https://git-scm.com/book/id/v2/Git-Tools-Rewriting-History
+git rebase -i HEAD~2
+
+-- opção
+squash
+
+--
+https://git-scm.com/docs/git-merge#_how_conflicts_are_presented
+
+
+-- 
+git config --global help.autocorrect
+
+-- Zip um branch
+git archive master --format=zip --output=master.zip
+
+-- Logs no GIT
+-- https://git-scm.com/docs/git-log
+git log --pretty=online
+
+git log --pretty=online --graph
+
+git log --pretty=online --graph --all
+
+-- 
+git log --since='Jan 1'
+
+--
+git log --until='Jan 6 2018'
+
+--
+git log --since='Jan 1 2018' --until='Jan 11 2018'
+
+--
+git log --author='Willian'
+
+--
+git shortlog
+
+
+git shortlog -sn
+
+--
+git log -3
+
+
+
+-- 
+git reflog
+
+

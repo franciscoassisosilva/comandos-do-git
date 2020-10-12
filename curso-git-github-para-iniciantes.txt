@@ -1,0 +1,106 @@
+-- Mais informações sobre os commits (como: se houver merge, foi de qual branch para qual branch, que tags foi gerados)
+git log --decorate
+
+--
+git log -author="Will"
+
+-- Mostras em ordem alfabeticas quais autores, quantos commits fizeram e quais eles foram
+git shorting
+
+-- Quantidades de commits e o autor
+git shortlog -sn
+
+-- Mostra em modo grafico o que está acontecendo com os branchs e versões do repositório
+git log --graph
+
+-- Pela hash mostra o que aconteceu no commit, o que foi modificado e adicionado ou excluido
+-- git show hash do commit
+git show 15f48f6f8de1386f9633281c575a37779d67da98
+
+-- Comando para ver as mudanças dos arquvios antes do commit
+git diff
+
+-- Mostra os nomes de somente dos arquivos modificados
+git diff --name-only
+
+-- Comitar sobre os arquivos que existem usa opção ( -a )
+git commit -am "mensagem sobre o que foi alterado"
+
+-- Retornar o arquivo para antes da edição
+git checkout README.md
+
+-- Retornar o arquivo antes do estado staged(estado pronto para commit)
+git reset HEAD README.md
+
+-- clonar repositório
+git clone git@github.com:franciscoassisosilva/github-course.git git-github-clone
+
+-- Criar um branch
+git checkout -b testing
+
+-- lista os branches
+git branch
+
+-- selecionar um branch
+git checkout nome-do-branch
+
+-- Retorna para o branch anterior
+git checkout -
+
+-- Deletar um branch
+git branch -D nome-do-branch
+
+-- Apagar branches no repositório remoto
+git push origin :test
+
+-- Unindo branches
+-- merge ou rebase
+
+-- 
+git merge nome-do-branch
+
+-- 
+git rebase nome-do-branch
+
+
+-- dicas .gitignore e exemplos
+https://git-scm.com/docs/gitignore
+
+https://github.com/github/gitignore
+
+-- Responsável por guardar modificações que ainda não foram commitadas em uma pasta ou arquivo
+-- git stash 
+git stash
+
+-- Aplicar as mudança guardadas
+git stash apply
+
+-- Mosta a lista de todos os stash sendo usado
+git stash list
+
+-- limpar tudo que estiver no stash
+git stash clear
+
+-- Alias
+git config --global alias.s status
+
+-- Tags
+git tag -a 1.0.0 -m "README finalizado"
+
+-- subir tags para o repositório remoto
+git push origin master --tags
+
+-- Remover tags
+git tag -d 1.0.1
+
+-- apagar tagas no repositório remoto
+git push origin :1.0.1
+
+
+-- git revert (hash do commit)
+git revert ca74a2035c1a53a6d1bff3311537cea31f56be8c
+
+
+
+
+

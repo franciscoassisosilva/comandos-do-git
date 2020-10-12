@@ -1,0 +1,159 @@
+Configurar o Git
+git config --global user.name "Francisco de Assis"
+git config --global user.emal "franciscoassisosilvaetb@gmail.com"
+
+Configurar o editor
+git config --global core.editor sub( editor sublime text)
+
+Ler Configurações
+
+git config --list
+git config --user.name
+git config --user.email
+git config --core.editor 
+
+Inicializar um repositorio no Git
+git init
+
+varre a pasta e verifica as alterões.
+git status 
+
+--> Adiciona ao git os arquivos para ser rastreados.
+git add README.md 
+git add -A --> para Todos os arquivos e pastas. 
+
+cmmit no git 
+git commit -m "comentário sobre a alteração"
+
+--> Lista de todos commit para branche
+git log
+
+--> Lista as Branches e mostra a branche atual destaque com asterisco(*)
+git branch 
+
+--> 
+git commit -am "comentário"
+
+
+--> reventendo modificações
+
+git reset --soft   --> volta para o estado antes do commit
+git reset --mixed  --> faz o mesmo que -soft, mas não está preparado para commit é necessário o add
+git reset --hard   --> volta para o estado antes do comit desconsiderando as alteraçoes.
+
+
+--> Criar um branch 
+git branch teste
+
+--> trocar de branch 
+git checkout teste 
+
+--> Remover branches locais e remotas
+
+
+--> git Merge - Mesclar o um branch com o branch principal(geralmente o master).
+https://www.atlassian.com/br/git/tutorials/using-branches/git-merge
+
+
+--> Diferença entre arquivos 
+o que foi feito em cada arquivos
+
+git diff 
+
+git diff nome_do_arquivo
+
+--> Soment o nome dos arquivos modificados
+git diff --name-only
+
+
+--> retornar para o estado original de um arquivo 
+git checkout HEAD -- nome_do_arquivo
+
+--> para criar uma chave privada/publica 
+link do artigo.
+https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+ssh-keygen -t rsa -b 4096 -C "franciscoassisosilvaetb@gmail.com"
+
+
+--> Verficar o detalhes do repositório remoto
+git remote
+git remote -v
+
+fetch -> puxa as alterações
+push  -> empurrar os conteúdo para o repositório remoto.
+
+		repositório remoto	branch 
+git push -u origin 				master 
+
+git push origin master
+ 
+--> repositório dos principais .gitignore. 
+https://github.com/github/gitignore 
+
+--> Revertendo sem perder o código (Revert)
+git revert --no-edit (hash do commit)a17ff1c1651d0aa5c1b5583686d5d29189d90bce
+
+--> enviar o branch local para o remoto 
+selecionar seu branch 
+git checkout teste 
+
+depois vaz o push do branch para o repositorio remote
+git push origin teste 
+
+--> remover um branch remoto 
+git push origin :teste 
+
+--> deletando um branch local 
+git branch -D teste 
+
+--> Puxando alterações de outras pessoas (pull)
+git pull origin master 
+
+--> clonar projeto
+git clone https://github.com/franciscoassisosilva/modulogit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
