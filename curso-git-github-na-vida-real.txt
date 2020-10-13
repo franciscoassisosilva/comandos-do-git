@@ -21,6 +21,9 @@ git add .
 
 git commit --amend
 
+-- Em caso de conflito no repositorio local e no remoto
+-- atualização do repositorio remoto
+git push origin master --force
 
 -- Definir o upstream -> De onde quero receber(branch) as atualizações do meu repositório remoto
 git branch --set-upstream-to=origin/<branch> master
