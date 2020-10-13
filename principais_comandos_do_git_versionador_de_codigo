@@ -83,6 +83,9 @@ git remote -v
 fetch -> puxa as alterações
 push  -> empurrar os conteúdo para o repositório remoto.
 
+--> definir um repositório remoto
+git remote add origin git@github.com:franciscoassisosilva/test.git
+
 		repositório remoto	branch 
 git push -u origin 				master 
 

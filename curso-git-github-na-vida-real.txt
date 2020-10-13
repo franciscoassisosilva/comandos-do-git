@@ -2,7 +2,7 @@
 ctrl  + shift + p
 
 --E digite o comando do git.
-git banch 
+git branch 
 
 -- Retorna para o branch anterior
 git checkout -
@@ -20,6 +20,10 @@ git commit --amend
 git add .
 
 git commit --amend
+
+
+-- Definir o upstream -> De onde quero receber(branch) as atualizações do meu repositório remoto
+git branch --set-upstream-to=origin/<branch> master
 
 obs: só é interessante quando os commits não foram enviados para o repositório remoto
 
@@ -83,5 +87,18 @@ git log -3
 
 -- 
 git reflog
+
+
+-- Plugins Para git
+
+-- git remote
+https://marketplace.visualstudio.com/items?itemName=samschneller.git-add-remote
+
+-- git history
+https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory
+
+-- git blame e stash
+https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame
+
 
 
