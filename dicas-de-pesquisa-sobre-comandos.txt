@@ -1,0 +1,4 @@
+https://git-scm.com/docs/git-revert
+
+https://docs.github.com/en/free-pro-team@latest/github/committing-changes-to-your-project/changing-a-commit-message
+
