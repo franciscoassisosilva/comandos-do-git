@@ -1,0 +1,10 @@
+-- mostrar apenas os dois últimos commits devemos utilizar a opção -n
+git log -n 2
+
+-- Se quisermos um resumo bem conciso dos commits do nosso projeto
+git log --oneline
+
+-- Mostrar um resumo dos arquivos alterados, com o número de linhas adicionas e removidas, através da opção --stat
+git log --stat
+
+--

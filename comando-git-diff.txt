@@ -1,0 +1,48 @@
+-- Se quisermos revisar a modificação efetuada, verificando as diferenças entre o arquivo alterado e o que foi comitado anteriormente, podemos usar o
+comando:
+git diff
+
+-- obs: O git diff não poderá ser utilizado para arquivos novos, que ainda não estão sendo rastreados pelo Git (ou seja, que ainda não tiveram o primeiro git add executado)
+
+
+-- É possível mostrar as diferenças entre os arquivos na área de stage e a última versão que foi comitada utilizando a opção --staged :
+git diff --staged
+
+Será que é possível exibir tanto as alterações fora da área de stage como as
+de dentro?
+Sim! Para isso, precisamos descobrir o código do último commit. Podemos fazer isso com 
+o comando git log -n 1 --oneline . Teremos a
+
+Com o código do último commit em mãos, agora podemos mostrar as
+alterações dentro e fora da stage utilizando o comando:
+git diff 222cccc
+
+-- obs:
+No nosso caso, teríamos a mesma saída anterior, que mostra as alterações dentro e fora do stage, utilizando o comando git diff HEAD .
+Isso acontece porque, no nosso caso, HEAD está apontado para o último commit efetuado.
+Porém, não é sempre assim, já que o HEAD pode apontar para commits anteriores.
+
+-- Podemos usar o comando git diff para verificar as diferenças entre
+dois commits específicos. Para comparar o que foi alterado no nosso último
+commit em relação aos dois anteriores, devemos utilizar o git diff pas-
+sando os códigos desses commits:
+$ git diff 222cccc..8877887
+
+-- git diff 8877887~2
+O comando anterior exibe as mudanças nos arquivos do commit de có-
+digo 8877887 em relação aos dois commits feitos imediatamente antes. O
+número depois do ~ indica quantos commits anteriores devem ser conside-
+rados na comparação. No nosso caso, foram dois.
+
+
+-- Se houvesse alguma modificação ainda não comitada, fora ou dentro da
+área de stage, as linhas alteradas também seriam mostradas na resposta do
+comando git diff 8877887 ~ 2 .
+Já o comando git diff 222cccc..8877887 não exibe modificações
+ainda não comitadas, mas apenas as mudanças que aconteceram entre os dois
+commits especificados.
+
+-- obs: O comando git status lista os arquivos modificados e o conteúdo
+da área de stage. Já o comando git diff mostra detalhadamente quais
+foram essas modificações, além de permitir verificar mudanças entre dois
+commits.

@@ -39,17 +39,51 @@ obs: só é interessante quando os commits não foram enviados para o repositór
 -- Opção de escolher o que quer commitar em um arquivo
 git add -p
 
+-- opções de escolha:
+y -> Sim
+n -> Não
+q -> Não adicione e sair do menu
+a -> Adicionar todos
+d -> Não adicione esse e nem os outros
+j -> Passa para o próximo
+J -> Passa para o anterior
+s -> Divide em partes menores
+e -> edição manual do arquivo
 
+-- Trabalhar com historicos
 -- Juntando commits com squash
 -- https://git-scm.com/book/id/v2/Git-Tools-Rewriting-History
 git rebase -i HEAD~2
 
 -- opção
-squash
+-- junstar commits(squash)
+-- pegar o hash anterior do ultimo commíte que deseja unir
+git rebase -i HEAD~2
 
---
+-- segue as opções(squash)
+
+
+--fixup
+git commit --fixup (hash do último commit)
+
+
+--Após fixup
+git rebase -i --autosquash 4dc7c4543bfe6a8c939b6d91b0b8d64d7e9cf8b1
+
+
+-- Resolver conflitos
 https://git-scm.com/docs/git-merge#_how_conflicts_are_presented
+git pull origin master --rebase
 
+-- Conflitos manuais
+git pull origin master
+
+git add nome_do_arquivo
+
+git merge --continue
+
+-- no caso de rebase
+git rebase --continue
 
 -- 
 git config --global help.autocorrect
@@ -86,7 +120,8 @@ git shortlog -sn
 --
 git log -3
 
-
+-- mostrar os dois últimos log
+git log -n 2
 
 -- 
 git reflog

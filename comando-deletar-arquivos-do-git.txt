@@ -1,0 +1,12 @@
+Então, informamos ao Git que queremos rastreá-lo, através do comando
+git add produtos.html . Depois, gravamos o conteúdo do arquivo no
+repositório com o comando git commit -m "Página de produtos" .
+Mas acabamos percebendo que replicamos o conteúdo do ar-
+quivo index.html e, por isso, gostaríamos de remover o arquivo
+produtos.html .
+Porém, não basta deletarmos o produtos.html . Precisamos deletá-
+lo e adicionar a deleção na stage, para só então efetuarmos um commit no
+repositório.
+A remoção do arquivo e adição na stage podem ser realizadas de uma vez
+só através do comando:
+$ git rm produtos.html
