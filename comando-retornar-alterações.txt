@@ -1,0 +1,30 @@
+-- O comando git checkout desfaz as alterações ainda não rastreadas, ou seja, que ainda não estão na área de stage, voltando ao conteúdo anterior
+do arquivo.
+git checkout -- index.html
+
+--obs: Caso haja alguma mudança já rastreada no arquivo, dentro da área de stage, ao executarmos o comando git checkout , apenas as alterações indesejadas, fora da stage, serão desfeitas. As mudanças que já estavam na stage permanecerão. Serão desfeitas apenas as alterações, que ainda não tinham sido rastreadas.
+
+-- Desfazendo mudanças já rastreadas
+-- Se quisermos apenas remover da área de stage a mudança efetuada no arquivo index.html, preservando o arquivo modificado, devemos executar:
+git reset -- index.html
+
+--obs: Se invocarmos o comando git reset sem nenhum parâmetro, serão retirados todos os arquivos da área de stage. As alterações efetuadas
+nesses arquivos serão preservadas.
+
+-- Há um detalhe importante: a opção --hard retira todos os arquivos da área de stage e desfaz todas as alterações nesses arquivos. No fim das contas, o repositório fica exatamente no estado que estava no último commit.
+git reset --hard
+
+
+-- Desfazendo mudançãs já comitadas
+Se quisermos voltar atrás, desfazendo as alterações no repositório, pode-
+mos utilizar o comando:
+$ git revert --no-edit 6111116
+
+-- ou
+
+$ git revert --no-edit HEAD 
+
+-- obs: Em vez de passar o código do último commit como parâmetro para o git revert , poderíamos ter utilizado HEAD que, no nosso caso, aponta para o último commit.(Cuidado).
+
+-- obs: No caso de passarmos um código de commit antigo, apenas as alterações feitas naquele commit serão desfeitas. Isso é algo bastante poderoso! Imagine que você descubra que um bug veio de uma alteração de determinado commit em um conjunto de arquivos. Apenas com um git revert é possível desfazer as alterações que inseriram o bug.
+Por isso, vale reiterar que commits pequenos e bem montados são importantes para podermos utilizar o real poder do Git.

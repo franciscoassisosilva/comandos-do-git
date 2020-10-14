@@ -1,0 +1,9 @@
+-- o arquivo aparece como renomeado na área de stage e pronto para ser comitado.
+git mv estilos.css principal.css
+
+-- Mover o arquivo para um diretorio
+-- obs: Atenção: é importante que o diretório js já tenha sido criado!
+git mv principal.js js/principal.js
+
+
+
