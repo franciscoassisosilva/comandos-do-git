@@ -1,0 +1,34 @@
+-- Uma branch é uma linha independente de desenvolvimento em que podemos comitar novas versões do código sem afetar outras branches.
+
+-- Para listar as branches do nosso repositório, devemos executar o comando:
+git branch
+
+-- Git possui por padrão uma branch principal chamada master.
+-- Observe que a branch master tem um asterisco (*) na frente. Isso indica que é a branch atual, em que estamos trabalhando.
+
+-- No Git, toda branch é basicamente um apontador para um commit. Acada novo commit que fazemos, a branch é movida automaticamente, passando a apontar para esse novo commit. Por isso, por padrão, a branch master aponta para o último commit que fizemos.
+
+-- Se quisermos listar as branches existentes no nosso repositório com os commits associados, poderíamos utilizar a opção -v do comando git branch :
+git branch -v
+
+-- Antes de continuarmos, é importante sabermos uma das informações que um commit armazena, o commit pai, que é o que foi efetuado anteriormente. Na verdade, um commit pode ter vários pais, o que veremos adiante.
+-- Podemos observar os commits com seus respectivos pais executando o comando git log com a opção (--parents) . Já para verificarmos o commit para o qual a master está apontando,passamos a opção (--decorate) para o comando git log .
+git log --oneline --decorate --parents
+
+
+-- Observe que a resposta do comando anterior apresenta três colunas: o código do commit, o código do pai e a mensagem do commit. Por exemplo, podemos ver que o pai do commit d211fac (“Renomeando CSS”) foi o commit 515da0a (“Removendo página de produtos”).
+
+-- Criando um branch
+-- O comando git branch apenas cria uma nova branch, mas não muda para a branch criada
+git branch design
+
+-- A nova branch que acabamos de criar ( design ) aponta para o mesmo commit que a branch que estávamos anteriormente ( master ). Podemos verificar isso com o comando:
+git branch -v 
+
+--HEAD -> Mas onde o Git guarda a informação de qual é a branch atual? Aí que entra o HEAD , que é um apontador especial que indica qual é a branch na qual estamos trabalhando.
+
+-- Trocando de branch
+git checkout design
+
+-- 
+
