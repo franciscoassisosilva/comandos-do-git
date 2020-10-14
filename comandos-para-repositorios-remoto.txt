@@ -1,0 +1,39 @@
+-- Criando um repositório remoto
+-- A criação do repositório remoto é feita com o comando git init , da mesma maneira que fizemos para criar o repositório local, entretanto devemos passar o parâmetro --bare ao comando:
+$ git init --bare moveis-ecologicos.git
+
+-- Adicionando o repositório remoto
+-- indicar ao Git onde está localizado o repositório remoto.
+git remote add servidor file://192.168.1.1/opt/repositorios/moveis-ecologicos.git
+
+--obs: É possível adicionar mais de um repositório remoto, desde que cada um tenha seu name distinto. Isto pode ser útil se precisarmos enviar os commits para mais de um servidor.
+
+-- Listando os repositórios remotos
+-- exibido apenas o name dos repositórios remotos
+git remote
+
+-- exibido o name e a url dos repositórios remotos
+git remote -v
+
+-- Alterando e removendo os repositórios remotos
+-- É possível alterar o name de um repositório remoto utilizando o comando git remote rename:
+git remote rename servidor outronome
+
+
+-- O que aconteceria se alguém alterasse o endereço IP do servidor de 192.168.1.1 para 192.168.1.2 ? Teríamos um problema, pois nosso repositório remoto estaria apontando para o endereço antigo. Devemos nesse caso alterar a url do repositório remoto, e isto é feito com outro comando, o git remote set-url, passando como parâmetro o name do repositório remoto e a nova url :
+git remote set-url servidor file://192.168.1.2/opt/repositorios/moveis-ecologicos.git
+
+-- Enviando commits para o repositório remoto
+Para enviar os commits locais, que ainda não existem no servidor, devemos utilizar o comando git push, informando o name do repositório remoto, no nosso caso servidor, seguido de master:
+$ git push servidor master
+
+-- Clonando o repositório remoto
+-- Para obtermos uma cópia de um repositório Git, devemos utilizar o comando git clone informando a URL do repositório a ser clonado:
+git clone file://192.168.1.1/opt/repositorios/moveis-ecologicos.git
+
+-- Sincronizando o repositório local
+-- A sincronização do repositório local com o servidor é feita com o uso do comando git pull , onde devemos informar o name do repositório remoto que queremos sincronizar, e o nome da branch local a ser atualizada:
+git pull servidor master
+
+-- 
+
