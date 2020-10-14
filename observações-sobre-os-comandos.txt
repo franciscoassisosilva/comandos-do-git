@@ -1,0 +1,6 @@
+-- Conforme vimos no capítulo 3, o comando git checkout , além de trocar a branch atual, também pode ser usado para descartar mudanças de um arquivo que ainda não estão na área de stage. Para descartarmos
+as mudanças do arquivo index.html , por exemplo, devemos executar git checkout -- index.html .
+-- Na verdade, a opção -- não é estritamente necessária. Porém, é uma boa prática, já que serve para informar que se trata de um arquivo. Dessa maneira, ajuda a evitar problemas caso uma branch tenha o mesmo nome de algum arquivo.
+
+
+

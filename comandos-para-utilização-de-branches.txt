@@ -30,5 +30,21 @@ git branch -v
 -- Trocando de branch
 git checkout design
 
--- 
+-- Depois de executar o comando anterior, o HEAD passa a apontar para a
+nova branch design . Se executarmos o comando git branch -v.
+
+-- Observe que o asterisco (*) que indica a branch atual foi mudada para a branch design . Ambas as branches continuam apontando para o mesmo commit.
+
+- criarmos e mudarmos para a nova branch loja de uma só vez. Podemos fazer isso passando a opção -b para o comando git checkout :
+git checkout -b loja
+
+-- Deletando uma branch
+-- Para deletar uma branch, devemos utilizar a opção -d do comando git branch :
+git branch -d loja
+
+-- obs: Não é possível remover uma branch enquanto estivermos nela. Por isso, devemos ir para outra branch. Para ir para a branch master , devemos executar git checkout master.
+
+--obs: Não é possível deletar com a opção -d uma branch que possui commits ainda não aplicados em outras branches (veremos como mesclar branches mais adiante).
+Para removermos a branch loja se tivermos feito algum commit, devemos utilizar a opção -D :
+git branch -D loja
 
