@@ -48,3 +48,91 @@ git branch -d loja
 Para removermos a branch loja se tivermos feito algum commit, devemos utilizar a opção -D :
 git branch -D loja
 
+
+-- Mesclando alterações
+-- Verificando branches ainda não mescladas
+-- Considerando que estamos na branch master , podemos verificar as branches ainda não mescladas com a opção --no-merged do comando git branch:
+git branch --no-merged
+
+--obs: Isso indica que há mudanças ainda não mescladas na branch design.
+
+-- O comando git branch também tem a opção --merged . Se executássemos 
+git branch --merged
+
+-- resposta: master
+
+-- Mesclando alterações com merge
+-- Para juntarmos todas as alterações que fizemos na branch design com as da branch master , mesclando as duas, podemos utilizar o comando:
+git merge design -m "Mesclando com a branch design"
+
+-- obs: 
+Há uma situação em que um git merge não irá gerar um commit de merge: quando a branch de destino não teve nenhum commit a mais desde que a branch a ser mesclada foi criada.
+-- No nosso caso, se não tivéssemos feito o commit 2223859 (Alterando textos do banner) na branch master , o merge com a branch design seria basicamente apontar a master para onde a design aponta: o commit 8f53065 (Adicionando Bootstrap).
+-- Esse tipo de merge é chamado de fast-forward.
+-- É possível evitar o uso de fast-forward, forçando a criação de um commit de merge, utilizando a opção --no-ff do comando git merge .
+
+-- Mesclando alterações com rebase
+-- Facilita tarefas de revisão de codigo
+-- Há uma maneira alternativa de mesclar as alterações de duas branches que simplifica o histórico do projeto. Considerando que estamos na branch master , em vez de utilizar git merge , é possível utilizar:
+git rebase design
+
+--obs: 
+-- No caso de um fast-forward basta apontar a branch de destino para o commit mais novo da branch sendo mesclada. No nosso caso, se não tivéssemos nenhum novo commit na branch master , a mesclagem seria feita apontando a master para o mesmo commit para o qual a design aponta. Dessa forma, o rebase não precisaria reescrever o histórico de commits.
+-- Por isso, o git merge e o git rebase têm o mesmo efeito quando há um fast-forward.
+
+-- Mantendo o histórico da master intacto após um rebase
+-- Primeiramente, teríamos que passar para a branch design com o comando 
+git checkout design
+-- Poderíamos ter feito a integração das branches master e design com rebase de maneira a deixar master intacta se tivéssemos feito nosso trabalho de uma maneira ligeiramente diferente.
+-- Primeiramente, teríamos que passar para a branch design com o comando git checkout design .
+-- Então, faríamos o rebase da branch master na design com o comando
+git rebase master .
+
+-- Com a base da branch design refeita, é possível fazer um merge do tipo fast-forward da design na branch master . Para tal, deveríamos ir para a master executando git checkout master.
+-- Para tal, deveríamos ir para a master executando:
+git checkout master
+
+
+-- Branches Remotas
+-- Podemos listar as branches remotas passando a opção -r para o comando git branch:
+git branch -r
+
+-- Se quisermos mostrar tanto as branches locais como as remotas, podemos utilizar o comando:
+git branch -a
+
+-- Para vermos para quais commits as branches remotas estão apontando
+git branch -r -v
+
+-- Compartilhando branches
+git push origin design
+
+-- Com o comando anterior, fizemos um git checkout de uma nova branch local chamada design a partir da branch remota origin/design . 
+-- Agora estamos prontos para trabalhar no design da aplicação, se quisermos.
+git checkout -b design origin/design
+
+-- Branches locais criadas a partir de branches remotas são chamadas de tracking branches.
+
+-- Uma outra maneira, mais sucinta, de criar uma tracking branch é utilizar a opção -t do comando git checkout. No nosso caso, faríamos:
+git checkout -t origin/design .
+
+-- Seria criada localmente a tracking branch design relacionada com a branch remota origin/design.
+
+--  Então, para enviar as alterações na branch master para o repositório remoto, devemos fazer:
+git push origin master
+
+-- Trazendo commits de um repositório remoto com fetch 
+-- Para obtermos os commits da branch remota origin/master no nosso repositório outro , podemos executar o comando:
+git fetch origin
+
+-- Mesclando branches remotas e locais com rebase
+A alternativa ao merge seria um rebase da branch origin/master na branch master . Para isso, devemos executar:
+git rebase origin/master
+
+--obs:  Utilizar um git pull --rebase para obter mudanças remotas. É uma prática segura porque nossos novos commits locais ainda não foram compartilhados, ou seja, outros membros nem sabem da existência desses commits. Por isso, alterá-los não traz grandes problemas.
+
+-- Uma discussão detalhada
+https://blog.sourcetreeapp.com/2012/08/21/merge-or-rebase/
+
+
+
+

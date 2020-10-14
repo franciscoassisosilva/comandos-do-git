@@ -1,0 +1,40 @@
+-- O que é tag?
+-- No Git, uma tag é simplesmente um apontador fixo para um commit específico. Ao contrário de branches, esse apontador não avança com novos commits.
+
+-- Os nomes permitidos para tags e branches têm algumas restrições: não podem conter alguns caracteres especiais como ~ , ^ e : , além de sequências de caracteres como .. e @{ .
+-- Os detalhes podem ser obtidos em:
+https://git-scm.com/docs/git-check-ref-format.html
+
+-- Criando, listando e deletando tags
+-- Para criarmos uma tag v1.0 no Git, devemos executar o comando:
+git tag v1.0
+
+-- Se quisermos listar as tags do nosso repositório, basta executarmos:
+git tag
+
+-- Podemos criar uma tag para um commit passado. Se quisermos criar uma tag chamada banners para o commit 2223859 (Alterando textos do banner), devemos executar:
+git tag banners 2223859
+
+-- Imagine que tenhamos errado o nome de uma tag. Por exemplo, criamos a tag verssao1 com o comando git tag verssao1 . Podemos deletá-la com o comando:
+git tag -d verssao1
+
+-- Mais informações com tags anotadas
+-- Se desejarmos manter mais informações como quando uma tag foi criada, quem a criou, além de termos uma mensagem descritiva, devemos criar tags anotadas.
+
+-- Para criarmos uma tag anotada, basta usarmos a opção -a do comando git tag e informar uma mensagem com a opção -m:
+
+-- Podemos exibir as informações de uma tag anotada com o comando:
+git show -s v1.1
+
+-- obs:
+-- O comando git show não serve apenas para exibir informações de tags.
+-- É possível utilizá-lo para inspecionar commits e outros detalhes internos do Git.
+
+-- Compartilhando tags com a sua equipe
+-- Para compartilhar tags, fazemos de maneira parecida com o que fizemos com branches, utilizando o comando git push . Para compartilhar a tag v1.0 , devemos executar o comando:
+git push tag origin v1.0
+
+
+-- Se quisermos enviar todas as novas tags do repositório local para um repositório remoto podemos utilizar o comando git push com a opção --tags :
+git push origin --tags
+
