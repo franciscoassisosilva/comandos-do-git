@@ -1,0 +1,4 @@
+https://nvie.com/posts/a-successful-git-branching-model/
+
+-- cheatsheet do git-flow
+http://danielkummer.github.io/git-flow-cheatsheet/index.pt_BR.html
